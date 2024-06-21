@@ -1,0 +1,66 @@
+body{
+    background: rgb(116,0,0);
+    background: linear-gradient(90deg, rgba(116,0,0,1) 0%, rgba(110,14,0,1) 83%, rgba(145,33,15,1) 100%);
+    font-size: x-large;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 630px;
+}
+
+.card{
+    border: 5px solid hsla(357, 55%, 40%, 0.827);
+    background-clip: border-box;
+    border: radius 0.25em; 
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card-body{
+    font-size: 0;
+    padding: 1.25rem;
+}
+
+.card-title{
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+    color:hwb(0 100% 0%);
+}
+
+.img img{
+    width: 400px;
+    height: 220px;
+    padding-bottom: 10px;
+
+}
+
+.time-section{
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.time-section:first-child{
+    margin-left: 0;
+}
+
+.time-section>.value{
+  
+    border: 2px solid goldenrod;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    line-height: 100px;
+    text-align: center;
+}
+
+.time-label{
+    font-size: 20px;
+    color: antiquewhite;
+    padding-top: 4px;
+    text-align: center;
+}

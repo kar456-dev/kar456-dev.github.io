@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <div class="card">
+             <div class="card-body">
+                <h2 class="card-title">
+                    HITUNG MUNDUR ULANG TAHUN
+                </h2>
+
+                <div class="img">
+                   <img src="anime.jpg" alt="">
+                </div>
+            </div>
+          
+                <div class="time-section">
+                    <div id="days" class="value">00</div> 
+                <div class="time-label">Days</div>
+                </div>
+
+                <div class="time-section">
+                    <div id="hours" class="value">00</div> 
+                <div class="time-label">Hours</div>
+                </div>
+  
+                <div class="time-section">
+                    <div id="minutes" class="value">00</div> 
+                <div class="time-label">Minutes</div>
+                </div>
+
+                <div class="time-section">
+                    <div id="second" class="value">00</div> 
+                <div class="time-label">Second</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+       // localStorage.removeItem('target_mili_sec');
+
+        // Cek apakah ada waktu target yang disimpan di localStorage
+        var target_mili_sec = localStorage.getItem('target_mili_sec');
+
+        // Jika tidak ada, tetapkan waktu target menjadi 2 hari dari sekarang dan simpan di localStorage
+        if (!target_mili_sec) {
+            var now = new Date();
+            target_mili_sec = now.getTime() + (2 * 24 * 60 * 60 * 1000); // 2 hari dalam milidetik
+            localStorage.setItem('target_mili_sec', target_mili_sec);
+        }
+
+        function timer() {
+            var now_mili_sec = new Date().getTime();
+            var remaining_sec = Math.floor((target_mili_sec - now_mili_sec) / 1000);
+
+            var days = Math.floor(remaining_sec / (3600 * 24));
+            var hours = Math.floor((remaining_sec % (3600 * 24)) / 3600);
+            var minutes = Math.floor((remaining_sec % 3600) / 60);
+            var second = Math.floor(remaining_sec % 60);
+
+            document.querySelector("#days").innerHTML = days;
+            document.querySelector("#hours").innerHTML = hours;
+            document.querySelector("#minutes").innerHTML = minutes;
+            document.querySelector("#second").innerHTML = second;
+        }
+
+        // Memperbarui hitung mundur setiap detik
+        setInterval(timer, 1000);
+
+        // Untuk pengujian, Anda bisa membuka komentar pada baris berikut untuk menghapus nilai target_mili_sec dari localStorage
+        // dan memuat ulang halaman untuk menetapkan waktu target baru
+        //localStorage.removeItem('target_mili_sec');
+ 
+ 
+    </script>
+    
+</body>
+</html>
